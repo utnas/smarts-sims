@@ -1,0 +1,44 @@
+<div class="alert alert-danger">
+  <h1>Inhabitants at Home</h1>
+</div>
+<hr>
+
+<table class="table table-striped">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Married with</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% Inhabitant.where(:user_id => session[:user_id]).each do |inhabitant| %>
+      <tr>
+        <td><%= inhabitant.first_name %></td>
+        <td><%= inhabitant.last_name %></td>
+        <td><%= inhabitant.gender %></td>
+        <td><%= inhabitant.age %></td>
+        <%	spouse= Wedding.get_spouse(inhabitant.id)  %>
+        <td>
+          <% if spouse.nil?	  %>
+          <%= "--"%>
+          <% else %>
+          <%=	spouse.first_name%>  <%=spouse.last_name  %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Edit', edit_inhabitant_path(inhabitant) %></td>
+        <td><%= link_to 'Delete', inhabitant, method: :delete, data: { confirm: 'Are you sure to delete this inhabitant ?' } %></td>
+        <td></td>
+    </tr>
+  <% end %>
+</table>
+
+<hr>
+
+<div class="btn btn-info" > <%= link_to 'New Inhabitant', new_inhabitant_path %></div>
+<div class="btn btn-info"> <%= link_to 'Go to church',:controller => :inhabitants, :action => 'church' %> </div>
+<div class="btn btn-info"><%= link_to  'Go to Court', :controller => :inhabitants, :action => 'court'  %> </div>
+<br/>

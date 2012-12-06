@@ -1,0 +1,39 @@
+<div class="alert alert-danger">
+<h1>Editing inhabitant</h1>
+ </div>
+<hr>
+
+<%= form_for(@inhabitant) do |f| %>
+    <% if @inhabitant.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@inhabitant.errors.count, "error") %> prohibited this inhabitant from being saved:</h2>
+
+          <ul>
+            <% @inhabitant.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :age %>
+      <%= f.number_field :age %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+
+<hr>
+  <div class="btn btn-info" > <%= link_to 'Back', inhabitants_path %></div>

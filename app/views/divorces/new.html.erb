@@ -1,0 +1,60 @@
+<div class="alert alert-danger">
+  <h1>Inhabitants in Court</h1>
+</div>
+<hr>
+
+<table class="table table-striped">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Married with</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% Inhabitant.where(:user_id => session[:user_id]).each do |inhabitant| %>
+      <tr>
+        <td><%= inhabitant.first_name %></td>
+        <td><%= inhabitant.last_name %></td>
+        <td><%= inhabitant.gender %></td>
+        <td><%= inhabitant.age %></td>
+        <%	spouse= Wedding.get_spouse(inhabitant.id)  %>
+        <td>
+          <% if spouse.nil?	  %>
+              <%= "--"%>
+          <% else %>
+              <%=	spouse.first_name%>  <%=spouse.last_name  %>
+          <% end %>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+  <% end %>
+</table>
+
+<hr>
+
+<div class="btn btn-info" > <%= link_to 'Inhabitants list', inhabitants_path %></div>
+<div class="btn btn-info" data-toggle="modal" href="#divorceModal" ><%= link_to  'Divorce', new_divorce_path %> </div>
+
+<br/>
+
+<div class="modal" id="divorceModal" >
+  <div class="modal-header">
+    <div class="alert alert-danger">
+        <h3>New divorce</h3>
+    </div>
+  </div>
+  <div class="modal-body">
+    <%= render 'form' %>
+  </div>
+  <div class="modal-footer">
+    <div class="btn btn-info">
+      <%= link_to 'Back', :controller => :inhabitants, :action => 'court' %>
+    </div>
+  </div>
+</div>

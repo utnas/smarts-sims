@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @inhabitant.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @inhabitant.last_name %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @inhabitant.gender %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @inhabitant.age %>
+</p>
+
+<div class="btn btn-info" ><%= link_to 'Edit', edit_inhabitant_path(@inhabitant) %></div>
+<div class="btn btn-info" > <%= link_to 'Back', inhabitants_path %></div>

@@ -1,0 +1,25 @@
+<%= form_for(@divorce) do |f| %>
+  <% if @divorce.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@divorce.errors.count, "error") %> prohibited this divorce from being saved:</h2>
+
+      <ul>
+      <% @divorce.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% map_name_id = Inhabitant.where(:user_id => session[:user_id]).map{ |inhabitant| [inhabitant.first_name.to_s.concat(' '+inhabitant.last_name), inhabitant.id]}%>
+  <div class="field">
+    <%= f.label :first_person_id %>
+    <%= f.select :first_person_id, map_name_id %>
+  </div>
+  <div class="field">
+    <%= f.label :second_person_id %>
+    <%= f.select :second_person_id, map_name_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Divorce'%>
+  </div>
+<% end %>

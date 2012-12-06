@@ -1,0 +1,32 @@
+<table class="table table-striped">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Married with</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% Inhabitant.where(:user_id => session[:user_id]).each do |inhabitant| %>
+      <tr>
+        <td><%= inhabitant.first_name %></td>
+        <td><%= inhabitant.last_name %></td>
+        <td><%= inhabitant.gender %></td>
+        <td><%= inhabitant.age %></td>
+        <%	spouse= Wedding.get_spouse(inhabitant.id)  %>
+        <td>
+          <% if spouse.nil?	  %>
+              <%= "--"%>
+          <% else %>
+              <%=	spouse.first_name%>  <%=spouse.last_name  %>
+          <% end %>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+  <% end %>
+</table>
