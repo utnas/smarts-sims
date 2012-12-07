@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :username
 
   has_many :inhabitants, :dependent => :destroy 
+   
 end
