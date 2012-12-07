@@ -9,9 +9,9 @@ localhost: &localhost
   host: localhost
   port: 5432
 
-store: &store
-  host: store.smartesting.com
-  port: 46020
+# store: &store
+#   host: store.smartesting.com
+#   port: 46020
 
 development:
   <<: *defaults
