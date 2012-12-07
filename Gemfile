@@ -32,6 +32,8 @@ gem 'jslint_on_rails'
 gem 'bootstrap-sass'
 gem 'twitter', '~> 3.0.2'
 gem 'sorcery'
+gem 'pg'
+gem 'heroku'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
