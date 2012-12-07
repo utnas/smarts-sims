@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :require_login, :only => [:new, :create]
-  before_filter :admin_required, :only=> [:index]
+  before_filter :admin_required, :only=> [:index, :destroy]
 
   # GET /users
   # GET /users.json
@@ -68,9 +68,9 @@ class UsersController < ApplicationController
     if @user then
       @user.destroy
     end
-    if session[:user_id] = params[:id] then
-        session[:user_id] =  nil
-    end
+    # if session[:user_id] = params[:id] then
+    #     session[:user_id] =  nil
+    # end
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
