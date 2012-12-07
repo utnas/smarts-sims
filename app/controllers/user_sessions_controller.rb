@@ -9,8 +9,10 @@ class UserSessionsController < ApplicationController
       respond_to do |format|
         user = login params[:username], params[:password]
         unless user then
-           username = User.find_by_email(params[:username]).username
-           user = login username, params[:password]
+          temp_user =  User.find_by_email(params[:username])
+          if temp_user
+            user = login temp_user.username, params[:password]
+          end
         end
         if user
           session[:user_id] = user.id
