@@ -25,6 +25,15 @@
 
           <!-- Everything you want hidden at 940px or less, place within here -->
           <div class="nav-collapse collapse">
+            <ul class="nav">
+                <% if user_logged? %>
+                    <% if admin_logged? %>
+                        <li>
+                          <a href="<%= new_user_path %>"><i class="icon-briefcase icon-white"></i>&nbsp;Manage Users</a>
+                        </li>
+                    <% end %>
+                <% end %>
+            </ul>  
             <ul class="nav pull-right">
             <li class="divider-vertical"></li>
             <li class="dropdown">
