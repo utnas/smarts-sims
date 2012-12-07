@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :email, :username
   validates_uniqueness_of :email, :username
 
-  has_many :inhabitants
+  has_many :inhabitants, :dependent => :destroy 
 end
