@@ -79,7 +79,7 @@ Sims::Application.routes.draw do
   # just remember to delete public/index.html.save.
   root :to => 'inhabitants#index'
 
-  break if ARGV.join.include? 'assets:precompile'
+  # break if ARGV.join.include? 'assets:precompile'
 
   # See how all your routes lay out with "rake routes"
 
