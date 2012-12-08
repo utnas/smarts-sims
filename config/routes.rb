@@ -25,7 +25,7 @@ Sims::Application.routes.draw do
 
   match 'inhabitants/church' => 'inhabitants#church', :as => :church
   match 'inhabitants/court' => 'inhabitants#court', :as => :court
-  match '/', :controller => "user_sessions", :action => "new"
+  # match '/', :controller => "user_sessions", :action => "new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -76,7 +76,7 @@ Sims::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.save.
-  root :to => 'inhabitants#index'
+  root :to => 'user_sessions#new'
 
   # break if ARGV.join.include? 'assets:precompile'
 
