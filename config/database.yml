@@ -2,31 +2,31 @@ defaults: &defaults
   adapter: postgresql
   encoding: UTF-8
   min_messages: warning
-  username: sims
-  password: lti18
+  username: axtppjywnxptci
+  password: SF-EfdwkqbsUZRUn3ZMj7FGgcO
 
 localhost: &localhost
   host: localhost
   port: 5432
 
-# store: &store
-#   host: store.smartesting.com
-#   port: 46020
+store: &store
+  host: ec2-54-243-238-144.compute-1.amazonaws.com
+  port: 5432
 
 development:
-  <<: *defaults
-  <<: *localhost
-  database: sims_development
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
+  timeout: 5000
 
 production:
   <<: *defaults
   <<: *store
-  database: sims_production
+  database: dbaam93bv3kfkl
   pool: 5
 
 test:
-  <<: *defaults
-  <<: *localhost
-  database: sims_test
+  adapter: sqlite3
+  database: db/test.sqlite3
   pool: 5
+  timeout: 5000
