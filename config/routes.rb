@@ -1,9 +1,7 @@
 Sims::Application.routes.draw do
 
   get "user_sessions/new"
-
   get "user_sessions/create"
-
   get "user_sessions/destroy"
 
   #get "user_sessions/new"
@@ -27,6 +25,7 @@ Sims::Application.routes.draw do
 
   match 'inhabitants/church' => 'inhabitants#church', :as => :church
   match 'inhabitants/court' => 'inhabitants#court', :as => :court
+  match '/', :controller => "user_sessions", :action => "new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
