@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery.ui.draggable
 //= require jquery.ui.resizable
+//= require bootstrap
 //= require_tree .
