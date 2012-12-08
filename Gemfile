@@ -6,25 +6,20 @@ gem 'rails', '3.2.8'
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-
-  # See https://githubmf.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
+  gem 'bootstrap'
+  gem 'twitter-bootstrap-rails'
+  gem 'jquery-rails'
+  gem 'jquery-ui-rails'
+  gem 'bootstrap-sass'
 end
 
 
 # To use pagination
 gem 'will_paginate'
-
-gem 'bootstrap'
-gem 'colored'
-gem 'twitter-bootstrap-rails'
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
 gem 'jslint_on_rails'
-gem 'bootstrap-sass'
 gem 'twitter', '~> 3.0.2'
+gem 'colored'
 gem 'sorcery'
 gem 'heroku'
 
