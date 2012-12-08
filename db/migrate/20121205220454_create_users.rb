@@ -9,6 +9,6 @@ class CreateUsers < ActiveRecord::Migration
     #   t.boolean :admin, :default => false
 
     #   t.timestamps
-    end
+    # end
   end
 end
