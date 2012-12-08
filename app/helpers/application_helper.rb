@@ -6,6 +6,10 @@ module ApplicationHelper
 
     def admin_logged?
       user = User.find_by_id(session[:user_id])
-      user.admin?
+      if user then
+      	user.admin?
+      else
+      	false
+      end
   	end
 end
