@@ -1,5 +1,5 @@
 class SorceryCore < ActiveRecord::Migration
-  def self.up
+  def change
     #drop_table :users
     create_table :users do |t|
       t.string :username,         :null => false  # if you use another field as a username, for example email, you can safely remove this field.
@@ -10,9 +10,5 @@ class SorceryCore < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def self.down
-    drop_table :users
   end
 end
