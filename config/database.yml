@@ -1,13 +1,9 @@
 defaults: &defaults
   adapter: postgresql
-  encoding: UTF-8
+  encoding: unicode
   min_messages: warning
-  username: axtppjywnxptci
-  password: SF-EfdwkqbsUZRUn3ZMj7FGgcO
-
-localhost: &localhost
-  host: localhost
-  port: 5432
+  username: aojcqngqbefwmn
+  password: KT_mIgPXa3D2QRFWwl9oUSIs6R
 
 store: &store
   host: ec2-54-243-238-144.compute-1.amazonaws.com
@@ -20,10 +16,20 @@ development:
   timeout: 5000
 
 production:
-  <<: *defaults
-  <<: *store
-  database: dbaam93bv3kfkl
+  adapter:  postgresql
+  encoding: unicode
   pool: 5
+  database: d9hqk0dtokmtui
+  username: aojcqngqbefwmn
+  password: KT_mIgPXa3D2QRFWwl9oUSIs6R
+  host: ec2-54-243-178-223.compute-1.amazonaws.com
+  port: 5432
+
+# production:  
+  # <<: *defaults
+  # <<: *store
+  # database: d9hqk0dtokmtui
+  # pool: 5
 
 test:
   adapter: sqlite3
