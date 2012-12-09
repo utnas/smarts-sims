@@ -11,8 +11,8 @@
     <th>Gender</th>
     <th>Age</th>
     <th>Married with</th>
-    <th></th>
-    <th></th>
+    <th>Edit</th>
+    <th>Delete</th>
     <th></th>
   </tr>
 
@@ -37,8 +37,8 @@
           <%=	spouse.first_name%>  <%=spouse.last_name  %>
           <% end %>
         </td>
-        <td><%= link_to 'Edit', edit_inhabitant_path(inhabitant) %></td>
-        <td><%= link_to 'Delete', inhabitant, method: :delete, data: { confirm: 'Are you sure to delete this inhabitant ?' } %></td>
+        <td><%= link_to image_tag("/img/edit2.png"), edit_inhabitant_path(inhabitant) %></td>
+        <td><%= link_to image_tag("/img/delete3.png"), inhabitant, method: :delete, data: { confirm: 'Are you sure to delete this inhabitant ?' } %></td>
         <td></td>
     </tr>
   <% end %>
