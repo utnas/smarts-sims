@@ -2,6 +2,7 @@ class Divorce < ActiveRecord::Base
   attr_accessible :first_person_id, :second_person_id
 
   validate :not_married_error, :not_married_with_error
+  validates_presence_of :first_person_id, :second_person_id
 
   private
   def self_divorce_error

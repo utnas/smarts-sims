@@ -17,13 +17,16 @@ class UserTest < ActiveSupport::TestCase
   	assert !user.valid?
   end
 
-  test "new valid user" do
-  	user = User.new username: "Dooley", email: "frr@free.fr", password: "password" 
-  	assert user.valid?
-  end
-
   test "new valid admin user" do
   	user = User.new username: "Dooley", email: "frr@free.fr", password: "password", admin: true
   	assert user.valid?
+  end
+
+  test "new valid user" do
+  	user = User.new username: "Dooley", email: "frr@free.fr", password: "password" 
+  	assert user.username == "Dooley", "username equals to Dooley"
+  	assert user.email == "frr@free.fr", "username email equals to frr@free.fr"
+  	assert user.password == "password", "password equals to password"
+  	assert user.valid?, "a valid user creation"
   end
 end

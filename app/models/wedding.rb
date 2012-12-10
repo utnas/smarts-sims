@@ -3,6 +3,7 @@ class Wedding < ActiveRecord::Base
 
   has_many :inhabitants
   validate :all_wedding_errors
+  validates_presence_of :first_spouse_id, :second_spouse_id
 
   def self.get_spouse(id)
     wedding = Wedding.find_by_first_spouse_id(id)
