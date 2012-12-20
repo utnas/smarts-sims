@@ -7,79 +7,71 @@ feature 'Sims site navigation' do
         visit '/'
     end
 
-    # scenario 'click on Home button' do
-    #     page.find('a', text: 'Sims Home').click
-    #     page.should have_content('Sign in')
-    # end
+    scenario 'click on Home button' do
+        page.find('a', text: 'Sims Home').click
+        page.should have_content('Sign in')
+    end
 
-    # scenario 'click on sign up to sims app' do
-    #     page.find('a', text: 'Sign up').click
-    #     page.should have_content('Sign Up')
-    # end
+    scenario 'click on sign up to sims app' do
+        page.find('a', text: 'Sign up').click
+        page.should have_content('Sign Up')
+    end
 
-    # scenario 'sign up to sims app' do
-    #     sign_up
-    #     page.should have_content('Sign in')
-    # end
+    scenario 'sign up to sims app' do
+        sign_up
+        page.should have_content('Sign in')
+    end
 
-    # scenario 'sign in to sims app' do
-    #     sign_up
-    #     sign_in
-    #     page.should have_content('Inhabitants at Home')
-    # end
+    scenario 'sign in to sims app' do
+        sign_up
+        sign_in
+        page.should have_content('Inhabitants at Home')
+    end
 
-    # scenario 'sign in and sign out to sims app' do
-    #     sign_up
-    #     sign_in
-    #     page.should have_content('Inhabitants at Home')
-    #     page.find('a', text: 'Logout').click
-    #     page.should have_content('Sign in')
-    # end
+    scenario 'sign in and sign out to sims app' do
+        sign_up
+        sign_in
+        page.should have_content('Inhabitants at Home')
+        page.find('a', text: 'Logout').click
+        page.should have_content('Sign in')
+    end
 
-    # scenario 'create new inhabitant' do
-    #     sign_up
-    #     sign_in
-    #     create_inhabitant('Sophie', 'lastname','Female')
-    #     page.should have_content('Sophie')
-    # end
+    scenario 'create new inhabitant' do
+        sign_up
+        sign_in
+        create_inhabitant('Sophie', 'lastname','Female')
+        page.should have_content('Sophie')
+    end
 
     scenario 'delete an inhabitant' do
         sign_up
         sign_in
         create_inhabitant('Sophie', 'lastname','Female')
         page.should have_content('Sophie')
-        page.find('a', image: 'delete3.png').click
+        page.find('a', image: '/img/delete3.png').click
         page.should have_no_content('Sophie')
     end
 
-    # scenario 'delete an inhabitant' do
-    #     sign_up
-    #     sign_in
-    #     create_inhabitant('inhab', 'name','Female')
-    #     page.find('a', img: 'delete3').click
-    #     page.should have_no_content('inhab')
-    # end
+    scenario 'get married' do
+        sign_up
+        sign_in
+        get_married
+        page.should have_content('Inhabitants at Home')
+    end
 
-    # scenario 'get married' do
-    #     sign_up
-    #     sign_in
-    #     get_married
-    #     page.should have_content('Inhabitants at Home')
-    # end
-
-    # scenario 'divorce' do
-    #     sign_up
-    #     sign_in
-    #     get_married
-    #     page.should have_content('Inhabitants at Home') 
-    #     page.find('a', text: 'Go to Court').click
-    #     page.find('a', text: 'Divorce').click
-    #     page.should have_content('New divorce')
-    #     page.select('Female lastname', :from => 'divorce_first_person_id')
-    #     page.select('Male lastname1', :from => 'divorce_second_person_id')
-    #     page.click_button('Divorce')
-    #     page.should have_content('Inhabitants at Home')
-    # end
+    scenario 'divorce' do
+        sign_up
+        sign_in
+        get_married
+        page.should have_content('Inhabitants at Home') 
+        page.find('a', text: 'Go to Court').click
+        page.find('a', text: 'Divorce').click
+        page.should have_content('New divorce')
+        page.select('Female lastname', :from => 'divorce_first_person_id')
+        page.select('Male lastname1', :from => 'divorce_second_person_id')
+        page.click_button('Divorce')
+        page.should have_content('Inhabitants at Home')
+    end
 
     # scenario 'select and deselect project' do
     #     first_item = page.find(:xpath, '//label[contains(.//a/text(), "Demo project")]')
