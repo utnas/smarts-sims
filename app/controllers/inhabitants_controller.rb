@@ -3,26 +3,13 @@ class InhabitantsController < ApplicationController
   # GET /inhabitants
   # GET /inhabitants.json
   def index
-
     @inhabitants = Inhabitant.where(:user_id => session[:user_id])
     # @inhabitants = Inhabitant.all
-
     respond_to do |format|
       format.html # index.html.save.erb
       format.json { render json: @inhabitants }
     end
   end
-
-  # GET /inhabitants/1
-  # GET /inhabitants/1.json
-  # def show
-  #   @inhabitant = Inhabitant.find(params[:id])
-
-  #   respond_to do |format|
-  #     format.html # show.html.erb
-  #     format.json { render json: @inhabitant }
-  #   end
-  # end
 
   # GET /inhabitants/new
   # GET /inhabitants/new.json
@@ -61,7 +48,7 @@ class InhabitantsController < ApplicationController
   # PUT /inhabitants/1
   # PUT /inhabitants/1.json
   def update
-    @inhabitant = Inhabitant.find(params[:id])
+    @inhabitant = Inhabitant.find_by_id(params[:id])
 
     respond_to do |format|
       if @inhabitant.update_attributes(params[:inhabitant])
@@ -77,7 +64,7 @@ class InhabitantsController < ApplicationController
   # DELETE /inhabitants/1
   # DELETE /inhabitants/1.json
   def destroy
-    @inhabitant = Inhabitant.find(params[:id])
+    @inhabitant = Inhabitant.find_by_id(params[:id])
     @inhabitant.destroy
 
     respond_to do |format|

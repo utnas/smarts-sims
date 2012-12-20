@@ -38,7 +38,7 @@
           <% end %>
         </td>
         <td><%= link_to image_tag("/img/edit2.png"), edit_inhabitant_path(inhabitant) %></td>
-        <td><%= link_to image_tag("/img/delete3.png"), inhabitant, method: :delete, data: { confirm: 'Are you sure to delete this inhabitant ?' } %></td>
+        <td><%= link_to image_tag("/img/delete3.png"), inhabitant, method: :delete, data: { confirm: 'Are you sure to delete the inhabitant: '+ inhabitant.to_s+' ?' } %></td>
         <td></td>
     </tr>
   <% end %>

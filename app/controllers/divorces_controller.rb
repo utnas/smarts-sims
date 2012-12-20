@@ -1,25 +1,4 @@
 class DivorcesController < ApplicationController
-  # GET /divorces
-  # GET /divorces.json
-  # def index
-  #   @divorces = Divorce.all
-
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #     format.json { render json: @divorces }
-  #   end
-  # end
-
-  # # GET /divorces/1
-  # # GET /divorces/1.json
-  # def show
-  #   @divorce = Divorce.find(params[:id])
-
-  #   respond_to do |format|
-  #     format.html # show.html.erb
-  #     format.json { render json: @divorce }
-  #   end
-  # end
 
   # GET /divorces/new
   # GET /divorces/new.json
@@ -56,22 +35,6 @@ class DivorcesController < ApplicationController
       end
     end
   end
-
-  # PUT /divorces/1
-  # PUT /divorces/1.json
-  # def update
-  #   @divorce = Divorce.find(params[:id])
-
-  #   respond_to do |format|
-  #     if @divorce.update_attributes(params[:divorce])
-  #       format.html { redirect_to @divorce, notice: 'Divorce was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @divorce.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   # DELETE /divorces/1
   # DELETE /divorces/1.json

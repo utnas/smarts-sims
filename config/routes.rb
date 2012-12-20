@@ -4,10 +4,6 @@ Sims::Application.routes.draw do
   get "user_sessions/create"
   get "user_sessions/destroy"
 
-  #get "user_sessions/new"
-  #get "user_sessions/create"
-  #get "user_sessions/destroy"
-
   resources :users
   resources :divorces
   resources :weddings

@@ -39,6 +39,9 @@ div {
     background-color: #fafafa;
     height: 630px;
   }
+  &.delete{
+    background: url("/img/delete.png");
+  }
 }
 
 #notice {

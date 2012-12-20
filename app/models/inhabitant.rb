@@ -9,6 +9,10 @@ class Inhabitant < ActiveRecord::Base
   belongs_to :wedding
   belongs_to :user
 
+  def to_s
+    first_name+' '+last_name
+  end
+
   private
   def can_update_age
     unless Wedding.find_by_id(self.id).nil?

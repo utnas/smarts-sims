@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create([{username: 'eddie',email: 'eddie.jaffuel@gmail.com',password: 'lti18',admin: true}])
+# Inhabitant.create([{first_name: "Fils", last_name: "jaffuel", gender: "Male", age: 2}])

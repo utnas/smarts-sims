@@ -4,7 +4,7 @@ class InhabitantTest < ActiveSupport::TestCase
   
   test "new valid inhabitant" do
     person1 = Inhabitant.new first_name: "Person_1", last_name: "Name_1", gender: "Male", age: 19
-    assert person1.valid?
+    assert person1.valid?, "valid inhabitant"
   end
 
   test "inhabitant first and seconde name " do
@@ -16,6 +16,6 @@ class InhabitantTest < ActiveSupport::TestCase
 
   test "new invalid inhabitant" do
   	inhabitant = Inhabitant.new first_name: "Dooley", last_name: "Nsewolo", gender: "Male"
-    assert !inhabitant.valid?
+    assert !inhabitant.valid?, "invalid inhabitant without age"
   end
 end
