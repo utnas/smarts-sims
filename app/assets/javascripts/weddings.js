@@ -3,7 +3,4 @@
 
 $(function() {
     $("#weddingModal").draggable();
-    $( "#weddingModal" ).resizable({
-        handles: "se"
-    });
 });
