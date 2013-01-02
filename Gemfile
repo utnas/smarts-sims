@@ -52,4 +52,5 @@ group :development, :test do
   gem 'headless'
   gem 'spork-rails'
   gem 'spork-testunit'
+  gem 'meta_request', '0.2.0'
 end

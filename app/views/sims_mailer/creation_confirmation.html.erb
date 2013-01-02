@@ -1,0 +1,19 @@
+<% @user %>
+<p>
+  Hello <%= @user.username %>,
+  <br/>
+  <br/>
+</p>
+<p>
+We're just writing to let you know that you've been automatically subscribed to Smart-sims app. <br/>
+
+You can sign in to smart-sims <a>http://smart-sims.herokuapp.com/login</a> with following account:<br/>
+
+	<li>username: @user.username</li>
+	<li>email: @user.email</li>
+	<li>password: @user.password</li>  
+</p>
+You were automatically subscribed because you've been signed up to smart-sims app.<br/>
+
+Thanks!<br/>
+Smart-Sims staff
