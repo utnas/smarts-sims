@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+  # fixtures :users
+
+  # def setup
+  #   @user = User.find(1)
+  # end
 
   test "new invalid user"  do
     user = User.new
