@@ -1,35 +1,41 @@
 <%= form_for(@inhabitant) do |f| %>
-  <% if @inhabitant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@inhabitant.errors.count, "error") %> prohibited this inhabitant from being saved:</h2>
+    <% if @inhabitant.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@inhabitant.errors.count, "error") %> prohibited this inhabitant from being saved:</h2>
 
-      <ul>
-      <% @inhabitant.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @inhabitant.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %> 
-    <%= f.select :gender, %w(Male Female) %>
-  </div>
+    <section>
+      <div class="form-group">
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </div>
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
+        <div class="field">
+          <%= f.label :gender %>
+          <%= f.select :gender, %w(Male Female) %>
+        </div>
 
-  <div class="field">
-    <%= f.label :age %>
-    <%= f.number_field :age %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+        <div class="field">
+          <%= f.label :age %>
+          <%= f.number_field :age %>
+        </div>
+      </div>
+    </section>
+    <br/>
+    <section class="form-group">
+      <div class="actions">
+        <%= f.submit class: 'btn btn-info' %>
+      </div>
+    </section>
 <% end %>

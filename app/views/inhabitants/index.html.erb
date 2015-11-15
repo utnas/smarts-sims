@@ -19,34 +19,34 @@
   <% Inhabitant.where(:user_id => session[:user_id]).each do |inhabitant| %>
       <tr>
         <td>
-          <% if(inhabitant.gender == 'Female') %>
-            <img src="/img/female.png">
-          <% else %>    
-            <img src="/img/male.png">
+          <% if inhabitant.gender == 'Female' %>
+              <img src="/img/female.png">
+          <% else %>
+              <img src="/img/male.png">
           <% end %>
         </td>
         <td><%= inhabitant.first_name %></td>
         <td><%= inhabitant.last_name %></td>
         <td><%= inhabitant.gender %></td>
         <td><%= inhabitant.age %></td>
-        <%	spouse= Wedding.get_spouse(inhabitant.id)  %>
+        <% spouse= Wedding.get_spouse(inhabitant.id) %>
         <td>
-          <% if spouse.nil?	  %>
-          <%= "--"%>
+          <% if spouse.nil? %>
+              <%= '--' %>
           <% else %>
-          <%=	spouse.first_name%>  <%=spouse.last_name  %>
+              <%= spouse.first_name %>  <%= spouse.last_name %>
           <% end %>
         </td>
-        <td><%= link_to image_tag("/img/edit2.png"), edit_inhabitant_path(inhabitant) %></td>
-        <td><%= link_to image_tag("/img/delete3.png"), inhabitant, method: :delete, data: { confirm: 'Are you sure to delete the inhabitant: '+ inhabitant.to_s+' ?' } %></td>
+        <td><%= link_to image_tag('/img/edit2.png'), edit_inhabitant_path(inhabitant) %></td>
+        <td><%= link_to image_tag('/img/delete3.png'), inhabitant, method: :delete, data: {confirm: 'Are you sure to delete the inhabitant: '+ inhabitant.to_s+' ?'} %></td>
         <td></td>
-    </tr>
+      </tr>
   <% end %>
 </table>
 
 <hr>
 
-<div class="btn btn-info" > <%= link_to 'New Inhabitant', new_inhabitant_path %></div>
-<div class="btn btn-info"> <%= link_to 'Go to church',:controller => :inhabitants, :action => 'church' %> </div>
-<div class="btn btn-info"><%= link_to  'Go to Court', :controller => :inhabitants, :action => 'court'  %> </div>
+<%= link_to 'New Inhabitant', new_inhabitant_path, class: 'btn btn-info' %>
+<%= link_to 'Go to church', church_inhabitants_path, class: 'btn btn-info' %>
+<%= link_to 'Go to Court', court_inhabitants_path, class: 'btn btn-info' %>
 <br/>

@@ -23,7 +23,7 @@ class Inhabitant < ActiveRecord::Base
     end
   end
 
-  #TODO: finalyse this validation
+  #TODO: finalize this validation
   def is_unique 
     user = User.find_by_id(session[:user_id])
     inhabitants = Inhabitant.where( "first_name = ? and last_name = ?", :first_name, :last_name)

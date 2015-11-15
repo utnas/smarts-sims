@@ -14,22 +14,22 @@
   <% Inhabitant.where(:user_id => session[:user_id]).each do |inhabitant| %>
       <tr>
         <td>
-          <% if(inhabitant.gender == 'Female') %>
-            <img src="/img/female.png">
-          <% else %>    
-            <img src="/img/male.png">
+          <% if inhabitant.gender == 'Female' %>
+              <img src="/img/female.png">
+          <% else %>
+              <img src="/img/male.png">
           <% end %>
         </td>
         <td><%= inhabitant.first_name %></td>
         <td><%= inhabitant.last_name %></td>
         <td><%= inhabitant.gender %></td>
         <td><%= inhabitant.age %></td>
-        <%	spouse= Wedding.get_spouse(inhabitant.id)  %>
+        <% spouse= Wedding.get_spouse(inhabitant.id) %>
         <td>
-          <% if spouse.nil?	  %>
-              <%= "--"%>
+          <% if spouse.nil? %>
+              <%= "--" %>
           <% else %>
-              <%=	spouse.first_name%>  <%=spouse.last_name  %>
+              <%= spouse.first_name %>  <%= spouse.last_name %>
           <% end %>
         </td>
         <td></td>

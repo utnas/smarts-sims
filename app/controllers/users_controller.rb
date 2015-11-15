@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :require_login, :only => [:new, :create]
-  before_filter :admin_required, :only=> [:index, :destroy]
+  before_filter :admin_required, :only => [:index, :destroy]
 
   # GET /users
   # GET /users.json
@@ -26,6 +26,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
+  end
+
+  #GET /users/new
+  def show
     @user = User.find(params[:id])
   end
 
@@ -66,15 +71,24 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
-    if @user then
+    if @user
       @user.destroy
     end
-    # if session[:user_id] = params[:id] then
-    #     session[:user_id] =  nil
-    # end
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
   end
+
+  def is_admin?
+    @user.admin
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password,
+                                 :password_confirmation)
+  end
+
 end

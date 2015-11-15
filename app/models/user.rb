@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, :message => "should match confirmation", :if => :password
   validates_presence_of :password, :email, :username
   validates_uniqueness_of :email, :username
-  validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+  #validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
   has_many :inhabitants, :dependent => :destroy 
    

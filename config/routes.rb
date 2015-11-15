@@ -1,84 +1,26 @@
 Sims::Application.routes.draw do
 
-  get "user_sessions/new"
-  get "user_sessions/create"
-  get "user_sessions/destroy"
-
   resources :users
   resources :divorces
   resources :weddings
-  resources :user_sessions
 
-  resources :inhabitants  do
+  resources :user_sessions
+  get 'user_sessions/new'
+  get 'user_sessions/create'
+  get 'user_sessions/destroy'
+
+  resources :inhabitants do
     collection do
       get :church
-        get :court
+      get :court
     end
   end
 
-  match 'login' => 'user_sessions#new', :as => :login
-  match 'logout' => 'user_sessions#destroy', :as => :logout
+  match 'login' => 'user_sessions#new', :via => [:get, :post], :as => :login
+  match 'logout' => 'user_sessions#destroy', :via => [:get, :post], :as => :logout
 
-  match 'inhabitants/church' => 'inhabitants#church', :as => :church
-  match 'inhabitants/court' => 'inhabitants#court', :as => :court
-  # match '/', :controller => "user_sessions", :action => "new"
+  match 'inhabitants/church' => 'inhabitants#church', :via => [:get, :post], :as => :church
+  match 'inhabitants/court' => 'inhabitants#court', :via => [:get, :post], :as => :court
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.save.
   root :to => 'user_sessions#new'
-
-  # break if ARGV.join.include? 'assets:precompile'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end

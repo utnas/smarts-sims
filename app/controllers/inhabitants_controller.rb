@@ -4,7 +4,6 @@ class InhabitantsController < ApplicationController
   # GET /inhabitants.json
   def index
     @inhabitants = Inhabitant.where(:user_id => session[:user_id])
-    # @inhabitants = Inhabitant.all
     respond_to do |format|
       format.html # index.html.save.erb
       format.json { render json: @inhabitants }
