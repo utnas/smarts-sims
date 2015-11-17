@@ -19,22 +19,22 @@
   <% Inhabitant.where(:user_id => session[:user_id]).each do |inhabitant| %>
       <tr>
         <td>
-          <% if(inhabitant.gender == 'Female') %>
-            <img src="/img/female.png">
-          <% else %>    
-            <img src="/img/male.png">
+          <% if (inhabitant.gender == 'Female') %>
+              <img src="/img/female.png">
+          <% else %>
+              <img src="/img/male.png">
           <% end %>
         </td>
         <td><%= inhabitant.first_name %></td>
         <td><%= inhabitant.last_name %></td>
         <td><%= inhabitant.gender %></td>
         <td><%= inhabitant.age %></td>
-        <%	spouse= Wedding.get_spouse(inhabitant.id)  %>
+        <% spouse= Wedding.get_spouse(inhabitant.id) %>
         <td>
-          <% if spouse.nil?	  %>
-              <%= "--"%>
+          <% if spouse.nil? %>
+              <%= "--" %>
           <% else %>
-              <%=	spouse.first_name%>  <%=spouse.last_name  %>
+              <%= spouse.first_name %>  <%= spouse.last_name %>
           <% end %>
         </td>
         <td></td>
@@ -46,20 +46,21 @@
 
 <hr>
 
-<div class="btn btn-info" > <%= link_to 'Inhabitants list', inhabitants_path %></div>
-<div class="btn btn-info" data-toggle="modal" href="#weddingModal" ><%= link_to  'Get married', new_wedding_path %> </div>
+<div class="btn btn-info"> <%= link_to 'Inhabitants list', inhabitants_path %></div>
+<div class="btn btn-info" data-toggle="modal" href="#weddingModal"><%= link_to 'Get married', new_wedding_path %> </div>
 <br/>
 
-<div class="modal" id="weddingModal" >
-    <div class="modal-header">
-        <div class="alert alert-danger">
-            <h3>New marriage</h3>
-        </div>
+<div class="modal" id="weddingModal">
+  <div class="modal-header">
+    <div class="alert alert-danger">
+      <h3>New marriage</h3>
     </div>
-    <div class="modal-body">
-        <%= render 'form' %>
-    </div>
-    <div class="modal-footer">
-        <div class="btn btn-info" > <%= link_to 'Back', :controller => :inhabitants, :action => 'church' %> </div>
-    </div>
+  </div>
+  <div class="modal-body">
+    <%= render 'form' %>
+  </div>
+
+  <div class="modal-footer">
+    <%= link_to 'Back', church_url, class: 'btn btn-info' %>
+  </div>
 </div>

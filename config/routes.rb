@@ -1,8 +1,6 @@
 Sims::Application.routes.draw do
 
-  resources :users
-  resources :divorces
-  resources :weddings
+  resources :users, :divorces, :weddings
 
   resources :user_sessions
   get 'user_sessions/new'
@@ -10,17 +8,15 @@ Sims::Application.routes.draw do
   get 'user_sessions/destroy'
 
   resources :inhabitants do
-    collection do
-      get :church
-      get :court
-    end
+    get :church, on: :collection
+    get :court, on: :collection
   end
+
+  match 'inhabitants/church' => 'inhabitants#church', :via => [:get], :as => :church
+  match 'inhabitants/court' => 'inhabitants#court', :via => [:get], :as => :court
 
   match 'login' => 'user_sessions#new', :via => [:get, :post], :as => :login
   match 'logout' => 'user_sessions#destroy', :via => [:get, :post], :as => :logout
-
-  match 'inhabitants/church' => 'inhabitants#church', :via => [:get, :post], :as => :church
-  match 'inhabitants/court' => 'inhabitants#court', :via => [:get, :post], :as => :court
 
   root :to => 'user_sessions#new'
 end

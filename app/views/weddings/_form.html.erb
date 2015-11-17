@@ -1,25 +1,26 @@
 <%= form_for(@wedding) do |f| %>
-  <% if @wedding.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@wedding.errors.count, "error") %> prohibited this wedding from being saved:</h2>
+    <% if @wedding.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@wedding.errors.count, "error") %> prohibited this wedding from being saved:</h2>
 
-      <ul>
-      <% @wedding.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @wedding.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <% map_name_id = Inhabitant.where(:user_id => session[:user_id]).map { |inhabitant| [inhabitant.first_name.to_s.concat(' '+inhabitant.last_name), inhabitant.id] } %>
+    <div class="field">
+      <%= f.label :first_person %>
+      <%= f.select :first_spouse_id, map_name_id %>
     </div>
-  <% end %>
-    <% map_name_id = Inhabitant.where(:user_id => session[:user_id]).map{ |inhabitant| [inhabitant.first_name.to_s.concat(' '+inhabitant.last_name), inhabitant.id]}%>
-  <div class="field">
-    <%= f.label :first_person %>
-    <%= f.select :first_spouse_id, map_name_id %>
-  </div>
-  <div class="field">
-    <%= f.label :second_person %>
-    <%= f.select :second_spouse_id, map_name_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Get Married'%>
-  </div>
+    <div class="field">
+      <%= f.label :second_person %>
+      <%= f.select :second_spouse_id, map_name_id %>
+    </div>
+    <br/>
+    <div class="actions">
+      <%= f.submit 'Get Married', class: 'btn btn-info' %>
+    </div>
 <% end %>

@@ -35,8 +35,8 @@ class InhabitantsController < ApplicationController
     @inhabitant.user_id = session[:user_id]
     respond_to do |format|
       if @inhabitant.save
-          format.html { redirect_to inhabitants_url, notice: 'Inhabitant was successfully created.' }
-          format.json { render json: @inhabitant, status: :created, location: @inhabitant }
+        format.html { redirect_to inhabitants_url, notice: 'Inhabitant was successfully created.' }
+        format.json { render json: @inhabitant, status: :created, location: @inhabitant }
       else
         format.html { render action: "new" }
         format.json { render json: @inhabitant.errors, status: :unprocessable_entity }
@@ -77,17 +77,16 @@ class InhabitantsController < ApplicationController
     @inhabitants = Inhabitant.all
 
     respond_to do |format|
-      format.html { render html: @inhabitants}
-      format.json { render json: @inhabitants }
+      format.html { render action: 'church'}
     end
   end
 
-  # GET /inhabitant/court
+  # GET /inhabitants/court
   def court
     @inhabitants = Inhabitant.all
+
     respond_to do |format|
-      format.html { render html: @inhabitants}
-      format.json { render json: @inhabitants }
+      format.html { render action: 'court'}
     end
   end
 end

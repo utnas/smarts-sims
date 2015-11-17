@@ -1,6 +1,6 @@
 <div class="alert alert-danger">
-<h1>Editing inhabitant</h1>
- </div>
+  <h1>Editing inhabitant</h1>
+</div>
 <hr>
 
 <%= form_for(@inhabitant) do |f| %>
@@ -31,9 +31,9 @@
     </div>
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit class: 'btn btn-info' %>
     </div>
 <% end %>
 
 <hr>
-  <div class="btn btn-info" > <%= link_to 'Back', inhabitants_path %></div>
+<%= link_to 'Back', inhabitants_path, class: 'btn btn-info' %>
