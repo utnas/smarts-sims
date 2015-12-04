@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '>4.2.4'
-gem 'rails_12factor'
 gem 'railties', '~>4.2.4'
 
 # Gems used only for assets and not required
@@ -31,6 +30,7 @@ gem 'puma'
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
