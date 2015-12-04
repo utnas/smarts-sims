@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        #SimsMailer.creation_confirmation(@user).deliver
+        SimsMailer.creation_confirmation(@user).deliver_later
         format.html { redirect_to user_sessions_new_path, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
