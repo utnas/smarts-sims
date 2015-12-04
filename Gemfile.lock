@@ -287,7 +287,7 @@ DEPENDENCIES
   protected_attributes
   puma
   qunit-rails
-  rails (> 4.2.4)
+  rails (~> 4.2.4)
   rails-observers
   rails_12factor
   railties (~> 4.2.4)
