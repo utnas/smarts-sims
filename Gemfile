@@ -2,7 +2,7 @@ ruby '2.2.0'
 
 source 'https://rubygems.org'
 
-gem 'rails', '>4.2.4'
+gem 'rails', '~>4.2.4'
 gem 'railties', '~>4.2.4'
 
 # Gems used only for assets and not required
