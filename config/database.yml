@@ -19,10 +19,12 @@ production:
   adapter:  postgresql
   encoding: unicode
   pool: 5
-  database: d9hqk0dtokmtui
-  username: aojcqngqbefwmn
-  password: KT_mIgPXa3D2QRFWwl9oUSIs6R
-  host: ec2-54-243-178-223.compute-1.amazonaws.com
+  database: db16nhata1slfe
+  username: cmrlscevzadons
+  password: qNRj8PncT7yPak9sJf8tpnfPcU
+  host: ec2-23-23-81-171.compute-1.amazonaws.com
+  Psql: heroku pg:psql --app bindus HEROKU_POSTGRESQL_MAROON
+  URL:  postgres://cmrlscevzadons:qNRj8PncT7yPak9sJf8tpnfPcU@ec2-23-23-81-171.compute-1.amazonaws.com:5432/db16nhata1slfe
   port: 5432
 
 # production:  
