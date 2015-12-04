@@ -1,1 +1,1 @@
-User.create([{username: 'eddie', email: '', password: '', admin: false}])
+User.create([{username: 'eddie', email: 'eddie.jaffuel@gmail.com', password: 'lti18lti18', admin: true}])
