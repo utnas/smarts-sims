@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails'
+gem 'rails', '>4.2.4'
+gem 'rails_12factor'
+gem 'railties', '~>4.2.4'
 
 # Gems used only for assets and not required
 # in production environments by default.
