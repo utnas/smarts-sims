@@ -2,71 +2,69 @@
 <html>
 <head>
   <title>Sims</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application", media: "all" %>
-  <%= stylesheet_link_tag "bootstrap" %>
-  <%= stylesheet_link_tag "bootstrap-responsive" %>
-  <%= javascript_include_tag "bootstrap"%>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=940, initial-scale=1">
 </head>
 <body>
 
-    <div class="navbar navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
 
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
 
-          <a class="brand active" href="<%= inhabitants_path %>">&nbsp;<i class="icon-home icon-white"></i>&nbsp;&nbsp;Smart-Sims Home</a>
+      <a class="brand active" href="<%= inhabitants_path %>">&nbsp;<i class="icon-home icon-white"></i>&nbsp;&nbsp;Smart-Sims
+        Home</a>
 
-          <!-- Everything you want hidden at 940px or less, place within here -->
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-                <% if user_logged? %>
-                    <% if admin_logged? %>
-                        <li>
-                          <a href="<%= users_path %>"><i class="icon-briefcase icon-white"></i>&nbsp;Manage Users</a>
-                        </li>
-                    <% end %>
-                <% end %>
-            </ul>  
-            <ul class="nav pull-right">
-            <li class="divider-vertical"></li>
-            <li class="dropdown">
-              <% if user_logged? %>
-                  <a class="no-selectable" href="/logout"><i class="icon-user icon-white"></i>&nbsp;Logout</a>
-              <% else %>
-                  <a class="no-selectable"><i class="icon-user"></i>&nbsp;<%= t :no_user %></a>
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <% if user_logged? %>
+              <% if admin_logged? %>
+                  <li>
+                    <a href="<%= users_path %>"><i class="icon-briefcase icon-white"></i>&nbsp;Manage Users</a>
+                  </li>
               <% end %>
-            </li>
-          </ul>
-          </div>
-        </div>
+          <% end %>
+        </ul>
+        <ul class="nav pull-right">
+          <li class="divider-vertical"></li>
+          <li class="dropdown">
+            <% if user_logged? %>
+                <a class="no-selectable" href="/logout"><i class="icon-user icon-white"></i>&nbsp;Logout</a>
+            <% else %>
+                <a class="no-selectable"><i class="icon-user"></i>&nbsp;<%= t :no_user %></a>
+            <% end %>
+          </li>
+        </ul>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Main Content -->
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span2 side">
-          <!--Sidebar content-->
-        </div>
-        <div class="span8">
-          <!--Body content-->
-          <div class="alert alert-info">
-            <%= yield %>
-          </div>
-        </div>
-        <div class="span2 side">
-          <!-- Side bar content -->
-        </div>
+<!-- Main Content -->
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2 side">
+      <!--Sidebar content-->
+    </div>
+    <div class="span8">
+      <!--Body content-->
+      <div class="alert alert-info">
+        <%= yield %>
       </div>
     </div>
+    <div class="span2 side">
+      <!-- Side bar content -->
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
